@@ -20,6 +20,12 @@ import { generate as genFigureMatrices } from './generators/figure-matrices.js';
 import { generate as genPaperFolding } from './generators/paper-folding.js';
 import { generate as genFigureClassification } from './generators/figure-classification.js';
 
+import {
+  initKumon, showKumonMenu,
+  isKumonMathDoneToday, isKumonReadingDoneToday, isKumonBothDoneToday,
+  kumonHomeHTML, kumonParentTabHTML, bindKumonParentEvents,
+} from './kumon.js';
+
 // ─── App State ───────────────────────────────────────────────────────────────
 
 let appState = loadState();
@@ -186,7 +192,7 @@ function showHome() {
 
     <!-- Streak -->
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 flex items-center gap-3 mb-4">
-      <span class="text-4xl">&#x1F525;</span>
+      <span class="text-4xl">${isKumonBothDoneToday() ? '&#x1F525;&#x1F525;' : '&#x1F525;'}</span>
       <div>
         <div class="streak-flame text-2xl font-extrabold">${streak} Day Streak</div>
         <div class="text-gray-400 text-sm">${state.totalQuestionsAnswered || 0} questions answered total</div>
@@ -203,11 +209,11 @@ function showHome() {
 
     <!-- Main CTA -->
     ${done
-      ? `<div class="bg-green-100 rounded-full py-4 px-6 text-center font-extrabold text-green-700 text-xl mb-3">Today's challenge complete! Come back tomorrow.</div>`
+      ? `<div class="bg-green-100 rounded-full py-4 px-6 text-center font-extrabold text-green-700 text-xl mb-3">Today's Gifted Challenge complete!</div>`
       : `<button id="start-btn"
           class="w-full bg-primary hover:bg-purple-600 active:bg-purple-700 text-white font-extrabold text-xl rounded-full py-5 shadow-lg mb-3 btn-choice transition-all"
           style="min-height:64px;">
-          Start Today's Challenge
+          Today's Gifted Challenge
         </button>`
     }
 
@@ -225,9 +231,12 @@ function showHome() {
 
     <!-- Skills Calendar link -->
     <button id="calendar-btn"
-      class="w-full bg-white border-2 border-gray-200 text-gray-600 font-bold text-base rounded-full py-3 btn-choice hover:bg-gray-50 transition-all">
+      class="w-full bg-white border-2 border-gray-200 text-gray-600 font-bold text-base rounded-full py-3 btn-choice hover:bg-gray-50 transition-all mb-6">
       View 60-Day Skills Calendar
     </button>
+
+    <!-- Kumon Drill section -->
+    ${kumonHomeHTML(state)}
   </div>`);
 
   // Event listeners
@@ -265,6 +274,9 @@ function showHome() {
   });
 
   el("calendar-btn").addEventListener("click", showSkillsCalendar);
+
+  const kumonBtn = el("start-kumon-btn");
+  if (kumonBtn) kumonBtn.addEventListener("click", showKumonMenu);
 
   el("gear-btn").addEventListener("click", handleGearTap);
 }
@@ -918,6 +930,7 @@ function renderParentPanel() {
   const tabs = [
     { id: "progress", label: "Progress" },
     { id: "apikeys", label: "API Keys" },
+    { id: "kumon", label: "Kumon" },
     { id: "exportimport", label: "Data" },
     { id: "reset", label: "Reset" },
   ];
@@ -1005,6 +1018,9 @@ function renderParentPanel() {
         <button id="save-levels-btn" class="w-full bg-green-500 text-white font-bold rounded-full py-2 btn-choice mt-2">Save Levels</button>
       </div>`;
 
+  } else if (activeParentTab === "kumon") {
+    panelBody = kumonParentTabHTML(state);
+
   } else if (activeParentTab === "exportimport") {
     panelBody = `
       <p class="text-gray-500 text-sm mb-4">Export your progress to a JSON file, or import a previously saved file.</p>
@@ -1083,6 +1099,11 @@ function renderParentPanel() {
         });
       }
     });
+  }
+
+  // Kumon parent tab
+  if (activeParentTab === "kumon") {
+    requestAnimationFrame(() => bindKumonParentEvents());
   }
 
   // API keys save
@@ -1168,11 +1189,11 @@ function renderParentPanel() {
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 
 window.addEventListener("DOMContentLoaded", () => {
-  // Set pdf.js worker source if loaded
   if (window.pdfjsLib) {
     window.pdfjsLib.GlobalWorkerOptions.workerSrc =
       "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
   }
   appState = loadState();
+  initKumon(showHome);
   showHome();
 });

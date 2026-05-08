@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- owl-3: eyes closed in happy squint (celebrating pose) -->
+
+  <!-- body -->
+  <ellipse cx="40" cy="52" rx="20" ry="22" fill="#C8893A"/>
+
+  <!-- belly -->
+  <ellipse cx="40" cy="56" rx="12" ry="14" fill="#F5D98B"/>
+
+  <!-- head -->
+  <ellipse cx="40" cy="28" rx="18" ry="17" fill="#C8893A"/>
+
+  <!-- ear tufts (slightly spread for joy) -->
+  <polygon points="26,15 21,4 30,13" fill="#8B5E1A"/>
+  <polygon points="54,15 59,4 50,13" fill="#8B5E1A"/>
+
+  <!-- left eye closed (happy arc) -->
+  <path d="M25,28 Q32,22 39,28" stroke="#3A2000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- right eye closed (happy arc) -->
+  <path d="M41,28 Q48,22 55,28" stroke="#3A2000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- rosy cheeks -->
+  <circle cx="28" cy="33" r="5" fill="#E87070" opacity="0.4"/>
+  <circle cx="52" cy="33" r="5" fill="#E87070" opacity="0.4"/>
+
+  <!-- beak with small smile -->
+  <polygon points="40,33 36,38 44,38" fill="#E8A020"/>
+  <path d="M36,38 Q40,42 44,38" stroke="#C87010" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- left wing (slightly raised in celebration) -->
+  <ellipse cx="21" cy="52" rx="7" ry="13" fill="#A06820" transform="rotate(-20,21,52)"/>
+
+  <!-- right wing (slightly raised in celebration) -->
+  <ellipse cx="59" cy="52" rx="7" ry="13" fill="#A06820" transform="rotate(20,59,52)"/>
+
+  <!-- small sparkle lines around head -->
+  <line x1="22" y1="12" x2="18" y2="8" stroke="#F5C842" stroke-width="2" stroke-linecap="round"/>
+  <line x1="58" y1="12" x2="62" y2="8" stroke="#F5C842" stroke-width="2" stroke-linecap="round"/>
+  <line x1="40" y1="10" x2="40" y2="5" stroke="#F5C842" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- feet -->
+  <line x1="34" y1="73" x2="30" y2="78" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34" y1="73" x2="34" y2="79" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34" y1="73" x2="38" y2="78" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+  <line x1="46" y1="73" x2="42" y2="78" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+  <line x1="46" y1="73" x2="46" y2="79" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+  <line x1="46" y1="73" x2="50" y2="78" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+</svg>

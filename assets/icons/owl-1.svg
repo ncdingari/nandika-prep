@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- owl-1: sitting straight, eyes wide open (neutral/ready pose) -->
+
+  <!-- body -->
+  <ellipse cx="40" cy="52" rx="20" ry="22" fill="#C8893A"/>
+
+  <!-- belly -->
+  <ellipse cx="40" cy="56" rx="12" ry="14" fill="#F5D98B"/>
+
+  <!-- head -->
+  <ellipse cx="40" cy="28" rx="18" ry="17" fill="#C8893A"/>
+
+  <!-- ear tufts -->
+  <polygon points="27,14 24,4 31,12" fill="#8B5E1A"/>
+  <polygon points="53,14 56,4 49,12" fill="#8B5E1A"/>
+
+  <!-- left eye white -->
+  <circle cx="32" cy="28" r="7" fill="white"/>
+  <!-- right eye white -->
+  <circle cx="48" cy="28" r="7" fill="white"/>
+
+  <!-- left pupil -->
+  <circle cx="32" cy="28" r="4" fill="#3A2000"/>
+  <!-- right pupil -->
+  <circle cx="48" cy="28" r="4" fill="#3A2000"/>
+
+  <!-- eye shine left -->
+  <circle cx="34" cy="26" r="1.5" fill="white"/>
+  <!-- eye shine right -->
+  <circle cx="50" cy="26" r="1.5" fill="white"/>
+
+  <!-- beak -->
+  <polygon points="40,33 36,38 44,38" fill="#E8A020"/>
+
+  <!-- left wing -->
+  <ellipse cx="22" cy="55" rx="7" ry="13" fill="#A06820" transform="rotate(-10,22,55)"/>
+
+  <!-- right wing -->
+  <ellipse cx="58" cy="55" rx="7" ry="13" fill="#A06820" transform="rotate(10,58,55)"/>
+
+  <!-- feet -->
+  <line x1="34" y1="73" x2="30" y2="78" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34" y1="73" x2="34" y2="79" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+  <line x1="34" y1="73" x2="38" y2="78" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+  <line x1="46" y1="73" x2="42" y2="78" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+  <line x1="46" y1="73" x2="46" y2="79" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+  <line x1="46" y1="73" x2="50" y2="78" stroke="#E8A020" stroke-width="2" stroke-linecap="round"/>
+</svg>
