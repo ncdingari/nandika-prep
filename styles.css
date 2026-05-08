@@ -1,0 +1,228 @@
+/* styles.css - NandikaPrep custom styles to supplement Tailwind */
+
+/* Base */
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  background: #FFF9F0;
+  color: #2d2d2d;
+}
+
+/* Touch-friendly answer choice buttons */
+.btn-choice {
+  min-width: 44px;
+  min-height: 44px;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Streak flame gradient text */
+.streak-flame {
+  background: linear-gradient(135deg, #F39C12, #E74C3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+/* New skill callout box */
+.callout-new-skill {
+  background: #FFF3CD;
+  border: 2px solid #F0C040;
+  border-radius: 12px;
+  padding: 12px 18px;
+}
+
+/* Confetti canvas overlay */
+.confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+}
+
+/* SVG question display */
+.svg-question {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Provider badge pill */
+.provider-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Answer bubbles for PDF print view */
+.answer-bubble {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  margin: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Parent panel overlay */
+.parent-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+/* Smooth transitions */
+.screen-fade {
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Big Sister badge */
+.sister-badge {
+  background: linear-gradient(135deg, #FF6B9D, #6C63FF);
+  color: white;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* Progress bar */
+.progress-bar-track {
+  background: #e5e7eb;
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6C63FF, #FF6B9D);
+  transition: width 0.4s ease;
+}
+
+/* Stars */
+.star-filled {
+  color: #F39C12;
+}
+
+.star-empty {
+  color: #D1D5DB;
+}
+
+/* Calendar grid */
+.day-cell {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: default;
+  transition: transform 0.1s;
+}
+
+.day-cell.completed {
+  background: #D1FAE5;
+  color: #065F46;
+  border: 2px solid #2ECC71;
+}
+
+.day-cell.today {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 2px solid #F0C040;
+  transform: scale(1.08);
+}
+
+.day-cell.locked {
+  background: #F3F4F6;
+  color: #9CA3AF;
+  border: 2px solid #E5E7EB;
+}
+
+/* Tab buttons */
+.tab-btn {
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.15s;
+}
+
+.tab-btn.active {
+  background: #6C63FF;
+  color: white;
+  border-color: #6C63FF;
+}
+
+.tab-btn.inactive {
+  background: white;
+  color: #6C63FF;
+  border-color: #6C63FF;
+}
+
+/* Accordion */
+.accordion-header {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Print styles */
+@media print {
+  nav, .no-print, #gear-btn, .parent-panel {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+    font-size: 14px;
+  }
+
+  .svg-question svg {
+    max-width: 280px;
+    height: auto;
+  }
+
+  .print-answer-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 6px;
+  }
+
+  .answer-bubble {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
