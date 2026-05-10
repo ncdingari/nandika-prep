@@ -1,11 +1,28 @@
 /* styles.css - NandikaPrep custom styles to supplement Tailwind */
 
 /* Base */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   background: #FFF9F0;
   color: #2d2d2d;
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(0px, env(safe-area-inset-left));
+  padding-right: max(0px, env(safe-area-inset-right));
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+}
+
+button,
+.btn-choice,
+.tab-btn,
+.gear-icon {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 /* Touch-friendly answer choice buttons */
@@ -196,6 +213,30 @@ body {
 .accordion-header {
   cursor: pointer;
   user-select: none;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .max-w-lg {
+    max-width: 720px;
+  }
+
+  .btn-choice {
+    min-height: 52px;
+    font-size: 1.05rem;
+  }
+
+  #gear-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  .day-cell {
+    font-size: 14px;
+  }
+
+  .progress-bar-track {
+    height: 10px;
+  }
 }
 
 /* Print styles */
